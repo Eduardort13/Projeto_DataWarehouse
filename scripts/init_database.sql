@@ -1,3 +1,13 @@
+/*
+---------------------------------------------------------------------------------
+Inicialização do Ambiente de Data Warehouse
+    1. Remove o banco 'DataWarehouse' existente forçando o fechamento de conexões.
+    2. Recria o banco de dados do zero.
+    3. Define a estrutura de camadas (Bronze, Silver, Gold) via Schemas.
+Este script apaga TODOS os dados existentes no DataWarehouse.
+---------------------------------------------------------------------------------
+*/
+
 use master;
 go
 
