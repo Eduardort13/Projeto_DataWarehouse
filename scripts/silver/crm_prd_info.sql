@@ -1,6 +1,6 @@
 /*
 ---------------------------------------------------------------------------------
-Processamento: Limpeza e Transformação (CRM Products)
+Processamento: Limpeza e Transformation (CRM Products)
     1. Extrai 'cat_id' e limpa 'prd_key' a partir da string original.
     2. Trata valores nulos no custo do produto (ISNULL).
     3. Padroniza as linhas de produtos (Mountain, Road, etc.) via CASE.
@@ -9,20 +9,7 @@ Este script realiza a carga final dos produtos na camada Silver.
 ---------------------------------------------------------------------------------
 */
 
-IF OBJECT_ID ('silver.crm_prd_info','U') IS NOT NULL 
-    DROP TABLE silver.crm_prd_info;
-
-CREATE TABLE silver.crm_prd_info (
-	prd_id          INT,
-	cat_id          NVARCHAR (50),
-	prd_key         NVARCHAR (50),
-	prd_nm          NVARCHAR (50),
-	prd_cost        INT,
-	prd_line        NVARCHAR (50),
-	prd_start_dt    DATE,
-	prd_end_dt      DATE,
-	dwh_create_date DATETIME2 DEFAULT GETDATE()
-);
+TRUNCATE TABLE silver.crm_prd_info;
 
 INSERT INTO silver.crm_prd_info (
 	prd_id,
